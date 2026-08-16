@@ -1,0 +1,23 @@
+<view class="home">
+  <view class="header"><view><view class="brand">微记薄</view><view class="brand-line"></view></view><view class="encourage">今天也在进步呀！</view></view>
+  <view class="date-row"><text class="date-main">{{month}}月{{day}}日</text><text class="weekday">{{weekday}}</text></view>
+  <view class="paper note-paper">
+    <view class="paper-hole" wx:for="{{holes}}" wx:key="*this" style="top: {{item}}rpx"></view>
+    <view class="note-content">
+      <view class="section-title">今天学了什么？</view>
+      <textarea class="note-input" value="{{content}}" bindinput="onContentInput" maxlength="300" placeholder="记录知识点、心得或一个小进步…" placeholder-class="placeholder"></textarea>
+      <view class="meta-row">
+        <picker mode="selector" range="{{durationOptions}}" value="{{durationIndex}}" bindchange="onDurationChange"><view class="meta-item"><text class="meta-label">学习时长</text><text class="meta-value">{{durationOptions[durationIndex]}}</text></view></picker>
+        <view class="meta-divider"></view>
+        <picker mode="selector" range="{{categories}}" value="{{categoryIndex}}" bindchange="onCategoryChange"><view class="meta-item"><text class="meta-label">分类</text><text class="meta-value">{{categories[categoryIndex]}}</text></view></picker>
+      </view>
+      <view class="custom-duration-row" wx:if="{{durationIndex === durationOptions.length - 1}}"><text>自定义时长</text><input type="number" value="{{customDuration}}" bindinput="onCustomDurationInput" maxlength="3" placeholder="请输入"/><text>分钟</text></view>
+    </view>
+  </view>
+  <button class="save-button" bindtap="saveRecord" loading="{{saving}}">记下今天</button>
+  <view class="paper week-card">
+    <view class="week-head"><view>本周已学习 <text class="accent">{{weekCount}}</text> 天</view><text class="week-tip">坚持就会有收获</text></view>
+    <view class="week-grid"><view class="week-day {{item.isToday ? 'today' : ''}}" wx:for="{{weekDays}}" wx:key="date"><text>{{item.name}}</text><text class="week-date">{{item.label}}</text><view class="day-dot {{item.done ? 'done' : ''}}">{{item.done ? '✓' : ''}}</view></view></view>
+  </view>
+  <view class="today-list" wx:if="{{todayRecords.length}}"><view class="list-heading">今天的记录</view><view class="record-row" wx:for="{{todayRecords}}" wx:key="id"><view><view class="record-content">{{item.content}}</view><view class="record-time">{{item.createdTime}} · {{item.category}}</view></view><text class="record-duration">{{item.duration}} 分钟</text></view></view>
+</view>

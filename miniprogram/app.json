@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/calendar/index",
+    "pages/stats/index"
+  ],
+  "window": {
+    "backgroundColor": "#F7F2E8",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F7F2E8",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6F6B63",
+    "selectedColor": "#E9684D",
+    "backgroundColor": "#FFFDF7",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/home/index", "text": "今天" },
+      { "pagePath": "pages/calendar/index", "text": "日历" },
+      { "pagePath": "pages/stats/index", "text": "统计" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}
