@@ -1,5 +1,5 @@
 <view class="home">
-  <view class="header"><view><view class="brand">微记薄</view><view class="brand-line"></view></view><view class="encourage">今天也在进步呀！</view></view>
+  <view class="header"><view><view class="brand">微进簿</view><view class="brand-line"></view></view><view class="encourage">今天也在进步呀！</view></view>
   <view class="date-row"><text class="date-main">{{month}}月{{day}}日</text><text class="weekday">{{weekday}}</text></view>
   <view class="paper note-paper">
     <view class="paper-hole" wx:for="{{holes}}" wx:key="*this" style="top: {{item}}rpx"></view>
